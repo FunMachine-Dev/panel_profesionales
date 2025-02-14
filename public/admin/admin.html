@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Editar Contenido</h1>
+    
+    <label for="section">Selecciona la sección:</label>
+    <!-- PASOS USANDO UN MENU DESPLEGABLE:
+     1.- Crear un archivo .json en la carpeta content con el mismo nombre de la sección
+     2.- Agregar aquí abajo la sección a editar según el nombre del ID que le haya puesto en el HTML
+     3.- Modificar el script en el html para que se asigne el contenido al ID correspondiente
+     o sea, el value = ID de la sección del HTML
+
+     EN EL CASO DE TENER UN TEXT-AREA ESPECÍFICO PARA CADA SECCIÓN SE DEBE ASIGNAR EL DATA-SECTION CON EL NOMBRE DE LA SECCIÓN A EDITAR
+    <select id="section"> 
+        <option value="about">Acerca de nosotros</option>
+        <option value="titulo">Título</option>
+    </select>-->
+    
+    <textarea class="content" rows="5" cols="40" placeholder="Escribe el nuevo contenido aquí..."></textarea>
+    <button class="save-btn" data-section="titulo">Guardar en Título</button>
+    
+    <textarea class="content" rows="5" cols="40" placeholder="Escribe el nuevo contenido aquí..."></textarea>
+    <button class="save-btn" data-section="about">Guardar en Acerca de Nosotros</button>
+
+    <p id="message"></p>
+
+    <script>
+        $(document).ready(function() {
+            $('.save-btn').click(function() {
+                const section = $(this).data('section'); // Obtiene la sección desde el botón presionado
+                const content = $(this).prev('.content').val(); // Obtiene el contenido del textarea asociado
+                $.ajax({
+                    url: 'http://localhost:3000/update-content',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ section, content }),
+                    success: function(response) {
+                        $('#message').text('Contenido actualizado correctamente.');
+                    },
+                    error: function() {
+                        $('#message').text('Error al actualizar el contenido.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
