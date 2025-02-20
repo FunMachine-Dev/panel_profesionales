@@ -1,6 +1,10 @@
 //Estos script aplican para los botones de guardar de la pagina de administrador
 //Dan las acciones de guardar el contenido de los textarea en los respectivos archivos .json
 
+
+
+
+
 //script titulo hero
 $(document).ready(function () {
     $('.save-btn1').click(function () {
@@ -66,6 +70,68 @@ $(document).ready(function () {
         }
     });
 });
+
+//script imagen hero
+$(document).ready(function () {
+    $('#save-imagen-hero').click(function (event) {
+        event.preventDefault(); // Evita que el botón provoque un submit
+        let file = $('#image-upload')[0].files[0];
+
+        if (!file) {
+            alert("Selecciona una imagen primero.");
+            return;
+        }
+
+        // Primero, eliminar todas las imágenes en el servidor
+        $.ajax({
+            url: 'http://localhost:3000/delete-images',
+            method: 'POST',
+            success: function () {
+                console.log("Todas las imágenes han sido eliminadas.");
+
+                let formData = new FormData();
+                formData.append('image', file);
+
+                // Subir la nueva imagen al servidor
+                $.ajax({
+                    url: 'http://localhost:3000/upload-image',
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert("Imagen subida correctamente.");
+
+                        let imageUrl = response.imageUrl;
+                        let section = "hero-image";
+
+                        // Guardar la nueva URL en el JSON
+                        $.ajax({
+                            url: 'http://localhost:3000/update-content',
+                            method: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify({ section, content: imageUrl }),
+                            success: function () {
+                                alert("URL guardada correctamente.");
+                            },
+                            error: function () {
+                                alert("Error al guardar la URL de la imagen.");
+                            }
+                        });
+                    },
+                    error: function () {
+                        alert("Error al subir la imagen.");
+                    }
+                });
+            },
+            error: function () {
+                alert("Error al eliminar las imágenes.");
+            }
+        });
+    });
+});
+
+
 
 //script titulo seccion 1
 $(document).ready(function () {

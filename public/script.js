@@ -21,6 +21,15 @@ $(document).ready(function () {
     });
 });
 
+//Actualiza imagen hero
+  $(document).ready(function () {
+    $.getJSON('http://localhost:3000/content/hero-image.json', function (data) {
+      $('#imagen-hero').attr('src','/public/' + data.content);//ojo con la ruta porque es diferente en el index y en el panel (porque el panel está dentro de "admin")
+    }).fail(function () {
+      $('#imagen-hero').val('No se pudo cargar el contenido.');
+    });
+  });
+
 // Obtener el contenido de la sección 'titulo seccion 1'
 $(document).ready(function () {
     $.getJSON('http://localhost:3000/content/titulo-seccion1.json', function (data) {

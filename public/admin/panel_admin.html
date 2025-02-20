@@ -98,9 +98,13 @@
     <section>
       <div class="container">
         <div class="row align-items-center">
-          <!--IMAGEN HERO-->
-          <div class="col-md-5 col-lg-7 order-md-1"><img class="img-fluid"
-              src="../assets/img/illustrations/hero-header.png" alt="" /></div>
+          <!-- IMAGEN HERO -->
+          <div class="col-md-5 col-lg-7 order-md-1 text-center text-md-start">
+            <img id="imagen-hero" class="img-fluid" src="../assets/img/illustrations/hero-header.png" alt="" />
+            <input type="file" id="image-upload" class="content form-control mt-2" accept="image/*">
+            <button class="btn save-image btn-primary mt-1 border-0" id="save-imagen-hero" type="button"
+              data-section="img-hero">Guardar Imagen</button>
+          </div>
 
           <!--TITULO HERO-->
           <div class="col-md-7 col-lg-5 text-center text-md-start">
@@ -109,18 +113,15 @@
               <textarea id="titulo-hero-textarea" class="content form-control mb-1 mx-auto" rows="1"
                 placeholder="Escribe el nuevo título aquí..."></textarea>
               <button class="save-btn1 btn btn-primary border-0" data-section="titulo-hero">Guardar Título</button>
-
             </div>
             <!-- TEXTO HERO -->
-            <p id="texto-hero" class="mt-3 mb-0">Texto introductorio.</p>
+            <p id="texto-hero" class="mt-3 mb-0">Texto introductorio:</p>
             <div class="mb-3">
               <textarea id="texto-hero-textarea" class="content form-control mb-1 mx-auto" rows="2"
                 placeholder="Escribe el nuevo texto aquí..."></textarea>
               <button class="save-btn2 btn btn-primary border-0 " data-section="texto-hero">Guardar Texto</button>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -132,8 +133,12 @@
           <div class="col-12">
             <div class="card mb-3 bg-soft-danger rounded-3">
               <div class="row g-0 align-items-center">
-                <div class="col-md-5 col-lg-6 text-md-center"><img class="img-fluid"
-                    src="../assets/img/illustrations/about.png" alt="" />
+                <div class="col-md-5 col-lg-6 text-md-center text-center">
+                  <img id="imagen-mas-info" class="img-fluid" src="../assets/img/illustrations/about.png"
+                    alt="" />
+                  <input type="file" id="image-upload" class="content form-control mt-2 ms-3" accept="image/*">
+                  <button class="btn save-image btn-primary mt-1 border-0" id="save-image" type="button"
+                    data-section="img-mas-info">Guardar Imagen</button>
                 </div>
 
                 <div class="col-md-7 col-lg-6 px-md-2 px-xl-6 text-center text-md-start">
@@ -149,7 +154,7 @@
                         Título</button>
                     </div>
                     <!-- TEXTO MAS INFO -->
-                    <p id="texto-seccion1" class="mt-3 mb-0">Texto sección.</p>
+                    <p id="texto-seccion1" class="mt-3 mb-0">Texto sección:</p>
                     <div class="mb-3">
                       <textarea id="texto-seccion1-textarea" class="content form-control mb-1 mx-auto" rows="2"
                         placeholder="Escribe el nuevo texto aquí..."></textarea>
@@ -353,8 +358,8 @@
           <div class="row flex-center mb-1">
             <div class="col-auto text-center" data-aos="fade-up" data-aos-delay="">
               <h1 class="fw-bold mb-1">¿Dónde estamos? </h1>
-              <p>Mira el siguiente tutorial para aprender a obtener tu link de Maps. Haz click <a href="#" data-bs-toggle="modal"
-                  data-bs-target="#tutorial-maps">AQUÍ</a></p>
+              <p>Mira el siguiente tutorial para aprender a obtener tu link de Maps. Haz click <a href="#"
+                  data-bs-toggle="modal" data-bs-target="#tutorial-maps">AQUÍ</a></p>
               <p class="heading">Pega el link de tu ubicación de Maps aquí:</p>
             </div>
 
@@ -368,7 +373,8 @@
                   </div>
                   <div class="modal-body">
                     <div class="ratio ratio-16x9">
-                      <video controls controlsList="nodownload" oncontextmenu="return false;" style="width: 100%; height: 100%;">
+                      <video controls controlsList="nodownload" oncontextmenu="return false;"
+                        style="width: 100%; height: 100%;">
                         <source src="../assets/video/Tutorial_MAPS.mp4" type="video/mp4">
                         Tu navegador no soporta la etiqueta de video.
                       </video>
@@ -404,8 +410,8 @@
           <div class="row flex-center">
             <div class="col-auto text-center" data-aos="fade-up" data-aos-delay="">
               <h1 class="fw-bold">Agenda </h1>
-              <p>Mira el siguiente tutorial para crear tu propia agenda en Calendly. Haz click <a href="#" data-bs-toggle="modal"
-                data-bs-target="#tutorial-calendly">AQUÍ</a></p>
+              <p>Mira el siguiente tutorial para crear tu propia agenda en Calendly. Haz click <a href="#"
+                  data-bs-toggle="modal" data-bs-target="#tutorial-calendly">AQUÍ</a></p>
               <p class="heading">Inserta el link de tu agenda aquí:</p>
               <div class="col-auto text-center">
                 <textarea id="link-calendly-textarea" class="content form-control mt-1 mb-1 mx-auto" rows="1"
@@ -417,25 +423,26 @@
           </div>
         </div>
 
-<!--MODAL TUTORIAL CALENDLY-->
-<div class="modal fade" id="tutorial-calendly" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tutorial</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="ratio ratio-16x9">
-          <video controls controlsList="nodownload" oncontextmenu="return false;" style="width: 100%; height: 100%;">
-            <source src="../assets/video/Tutorial_Calendly.mp4" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-          </video>
+        <!--MODAL TUTORIAL CALENDLY-->
+        <div class="modal fade" id="tutorial-calendly" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Tutorial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                  <video controls controlsList="nodownload" oncontextmenu="return false;"
+                    style="width: 100%; height: 100%;">
+                    <source src="../assets/video/Tutorial_Calendly.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
         <!-- Principio del widget integrado de Calendly -->
         <div class="agenda-section" id="agenda-section">
@@ -558,19 +565,15 @@
     </div>
   </main>
 
-
-
-
-
   <!-- ===============================================-->
   <!--    JavaScripts-->
   <!-- ===============================================-->
   <script src="../vendors/@popperjs/popper.min.js"></script>
   <script src="../vendors/bootstrap/bootstrap.min.js"></script>
   <script src="../vendors/is/is.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>-->
   <script src="../assets/js/theme.js"></script>
-  <script src="../admin/script_admin.js"></script>
+  <script src="/public/admin/script_admin.js"></script>
 
 
   <!-- MUESTRA LA PREV DEL MAPA  -->
@@ -631,28 +634,91 @@
     });
   </script>
 
-<!--Detiene la reproducción del tutorial de Calendly cuando se cierra el modal-->
-<script>
-  $('#tutorial-calendly').on('hidden.bs.modal', function () {
-  var video = $(this).find('video')[0];
-  if (video) {
-    video.pause();
-    video.currentTime = 0; // Reinicia el video, opcional
-  }
-});
-</script>
+  <!--Detiene la reproducción del tutorial de Calendly cuando se cierra el modal-->
+  <script>
+    $('#tutorial-calendly').on('hidden.bs.modal', function () {
+      var video = $(this).find('video')[0];
+      if (video) {
+        video.pause();
+        video.currentTime = 0; // Reinicia el video, opcional
+      }
+    });
+  </script>
+
+  <!--Detiene la reproducción del tutorial de Maps cuando se cierra el modal-->
+  <script>
+    $('#tutorial-maps').on('hidden.bs.modal', function () {
+      var video = $(this).find('video')[0];
+      if (video) {
+        video.pause();
+        video.currentTime = 0; // Reinicia el video, opcional
+      }
+    });
+  </script>
+
+  <!--Actualiza img HERO-->
+  <script>
+    $(document).ready(function () {
+      $.getJSON('http://localhost:3000/content/hero-image.json', function (data) {
+        $('#imagen-hero').attr('src', '../' + data.content);
+      }).fail(function () {
+        $('#imagen-hero').val('No se pudo cargar el contenido.');
+      });
+    });
+  </script>
 
 
-<!--Detiene la reproducción del tutorial de Maps cuando se cierra el modal-->
+  <!--Actualiza img mas info-->
+  <script>
+    $(document).ready(function () {
+      $.getJSON('http://localhost:3000/content/hero-mas-info.json', function (data) {
+        $('#imagen-mas-info').attr('src', '../' + data.content);
+      }).fail(function () {
+        $('#imagen-mas-info').val('No se pudo cargar el contenido.');
+      });
+    });
+  </script>
+
+
+  <!-- Subir imagen HERO 
 <script>
-  $('#tutorial-maps').on('hidden.bs.modal', function () {
-  var video = $(this).find('video')[0];
-  if (video) {
-    video.pause();
-    video.currentTime = 0; // Reinicia el video, opcional
-  }
-});
-</script>
+  $(document).ready(function () {
+    $('#save-image').click(function (event) {
+      event.preventDefault(); // Evita que el botón provoque un submit
+      let file = $('#image-upload')[0].files[0];
+      if (!file) {
+        alert("Selecciona una imagen primero.");
+        return;
+      }
+
+      let formData = new FormData();
+      formData.append('image', file);
+
+      $.ajax({
+        url: 'http://localhost:3000/upload-image',
+        method: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+          console.log("Ruta de imagen devuelta:", response.imageUrl);
+
+          // Usar la URL devuelta directamente sin modificarla
+          let nuevaRuta = response.imageUrl + '?t=' + new Date().getTime();
+          $('#imagen-hero').attr('src', nuevaRuta);
+          $('#texto').text("Imagen actualizada");
+          console.log("nueva ruta: ", nuevaRuta);
+          alert("Imagen actualizada correctamente.");
+        },
+        error: function () {
+          alert("Error al subir la imagen.");
+        }
+      });
+    });
+  });
+</script>-->
+
+
 
   <!--SCRIPT PARA ACTIVAR/DESACTIVAS SECCIONES
 <script>
